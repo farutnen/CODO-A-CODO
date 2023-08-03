@@ -5,7 +5,7 @@
 
 //React.Component()
 
-//clase base de react, se usa cuando queremos crear componentes personalizados 
+//clase base de react, se usa cuando queremos crear componentes personalizados
 //un framework es un conjunto de herramientas que engloba muchas funcionalidades
 //Angular es un Framework
 //REACT DEPENDE DE MUCHAS LIBRERIAS EXTERNAS
@@ -31,12 +31,12 @@
 //React tiene una gran ventaja:
 //tiene menos dependencias externas
 //otra ventaja de React es que es mantenido por Facebook
-//vue tambien esta bien documentado 
+//vue tambien esta bien documentado
 
 var nombre = "Nico";
 //variable global
-if(true){
-    var nombre="Gonzalez";
+if (true) {
+  var nombre = "Gonzalez";
 }
 
 console.log(nombre);
@@ -48,10 +48,10 @@ console.log(nombre);
 let apellido = "sanchez";
 
 //el siguiente es un SCOPE
-if(true){
-    let apellido = "garcía";
-    
-    console.log("Apellido",apellido); //imprime GARCÍA
+if (true) {
+  let apellido = "garcía";
+
+  console.log("Apellido", apellido); //imprime GARCÍA
 }
 console.log(apellido);
 //el siguiente console log tira
@@ -60,22 +60,57 @@ console.log(apellido);
 //var= global
 //let= local
 
-//cual es la diferencia entre una función y una función con flechas? 
+//cual es la diferencia entre una función y una función con flechas?
 
+// import React from "react";
 
-import React from 'react'
-
-type Props = {}
-
-const intro = (props: Props) => {
-  return (
-    <div>intro</div>
-  )
+// const intro = (props: Props) => {
+//     return <div>intro</div>;
+// };
+// el siguiente es una función de JavaScript
+// function saludo() {
+//     alert("hola");
+// }
+//
+//el siguiente es una funcion arrow function
+const hola = () => {
+    alert("HOLA");
+};
+//el siguiente es una clase
+class Persona {
+    constructor() {}
+    getNombre() {
+        this._nombre = "Juan";
+    }
+    set nombre(nuevoValor) {
+        this._nombre = nuevoValor;
+    }
 }
-//el siguiente es una función de JavaScript
-function saludo(){
-    alert('hola');
-    };
-    // 
-    //el siguiente es una funcion arrow function 
-    
+export default Persona;
+import Persona from "./persona";
+import { Props } from "./Props";
+var personita = new Persona();
+personita.getNombre();
+personita.setNombre("<NAME>");
+console.log(`El nombre de la persona es ${personita.nombre}`);
+//el siguiente es un objeto literal
+let miObjeto = {
+    apellidos: "García",
+    edad: 25,
+    direccion: {
+        calle: "Avda",
+        numero: 1034,
+    },
+};
+console.log(`${miObjeto["apellidos"]} tiene ${miObjeto["edad"]} años`);
+delete miObjeto[direccion];
+for (let i in miObjeto) {
+    if (!isNaN(+i)) {
+        continue;
+    } else break;
+}
+Object.keys(miObjeto).forEach((key) =>
+    console.log("la clave " + key + "tiene el valor" + miObjeto[key])
+);
+
+//el siguiente es un array
